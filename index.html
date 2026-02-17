@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Plant Doctor AI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo">🌿 Plant Doctor AI</div>
+            <p class="subtitle">Instant diagnosis & expert care for your plants</p>
+        </header>
+
+        <main>
+            <!-- Upload Card -->
+            <div class="card upload-card">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <span class="upload-icon">📸</span>
+                        <h3>Take a Photo</h3>
+                        <p>or upload from gallery</p>
+                    </div>
+                </div>
+
+                <div id="previewContainer" class="hidden fade-in">
+                    <img id="imagePreview" src="" alt="Plant Preview">
+                    <button type="button" class="remove-btn" id="removeImgBtn">✕</button>
+                </div>
+
+                <button id="analyzeBtn" class="primary-btn" disabled>
+                    <span>Analyze Plant Health</span>
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingIndicator" class="hidden fade-in">
+                <div class="loader-ring"></div>
+                <p>Scanning leaf patterns...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorContainer" class="hidden error-msg fade-in"></div>
+
+            <!-- Results Section -->
+            <div id="resultsContainer" class="hidden">
+                <!-- Diagnosis Header -->
+                <div class="result-header fade-in-up" style="animation-delay: 0.1s">
+                    <h2 id="plantName">Plant Name</h2>
+                    <div class="status-badge-wrapper">
+                        <span id="diagnosisStatus" class="status-pill">Status</span>
+                        <span id="confidenceLevel" class="confidence-pill">98% Match</span>
+                    </div>
+                </div>
+
+                <!-- Problem Card -->
+                <div class="card problem-card fade-in-up" style="animation-delay: 0.2s">
+                    <div class="card-header">
+                        <span class="icon">🔍</span>
+                        <h3>Diagnosis</h3>
+                    </div>
+                    <h4 id="problemName" class="highlight-text">Problem Name</h4>
+                    <p id="problemCause" class="secondary-text">Cause description...</p>
+
+                    <div class="symptoms-box">
+                        <h5>Symptoms</h5>
+                        <ul id="symptomsList"></ul>
+                    </div>
+                </div>
+
+
+                <!-- Treatments Grid -->
+                <div class="grid-2">
+                    <!-- Natural Remedies -->
+                    <div class="card remedy-card natural fade-in-up" style="animation-delay: 0.3s">
+                        <div class="card-header">
+                            <span class="icon">🌿</span>
+                            <h3>Natural Cure</h3>
+                        </div>
+                        <div id="naturalList"></div>
+                    </div>
+
+                    <!-- Chemical Treatments -->
+                    <div class="card remedy-card chemical fade-in-up" style="animation-delay: 0.4s">
+                        <div class="card-header">
+                            <span class="icon">🧪</span>
+                            <h3>Chemical</h3>
+                        </div>
+                        <div id="chemicalList"></div>
+                    </div>
+                </div>
+
+                <!-- Prevention -->
+                <div class="card prevention-card fade-in-up" style="animation-delay: 0.5s">
+                    <div class="card-header">
+                        <span class="icon">🛡️</span>
+                        <h3>Prevention</h3>
+                    </div>
+                    <ul id="preventionList" class="check-list"></ul>
+                </div>
+
+                <p class="disclaimer fade-in-up">⚠️ AI-generated advice. Verify with a local expert.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
